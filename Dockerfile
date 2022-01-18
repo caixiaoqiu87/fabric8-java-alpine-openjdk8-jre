@@ -1,6 +1,6 @@
 FROM alpine:3.8
 
-MAINTAINER https://github.com/zhangliqiang/fabric8-java-alpine-openjdk8-jre
+MAINTAINER https://github.com/caixiaoqiu87/fabric8-java-alpine-openjdk8-jre
 
 USER root
 
@@ -15,7 +15,7 @@ ENV JAVA_APP_DIR=/deployments \
 # according to http://www.2uo.de/myths-about-urandom/
 RUN apk add --update \
     curl \
-    openjdk8-jre-base=8.171.11-r0 \
+    openjdk8-jre-base=8.275.01-r0 \
  && rm /var/cache/apk/* \
  && echo "securerandom.source=file:/dev/urandom" >> /usr/lib/jvm/default-jvm/jre/lib/security/java.security
 
