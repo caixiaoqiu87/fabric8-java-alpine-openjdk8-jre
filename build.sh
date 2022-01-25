@@ -1,1 +1,1 @@
-docker build -t fczy.com/fabric8-java-alpine-openjdk8-jre:last .
+docker build -t fczy.com/fabric8-java-alpine-openjdk8-jre:latest .
