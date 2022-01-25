@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:arm64
 
 MAINTAINER https://github.com/caixiaoqiu87/fabric8-java-alpine-openjdk8-jre
 
