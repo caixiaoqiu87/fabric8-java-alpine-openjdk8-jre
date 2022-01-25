@@ -1,4 +1,4 @@
-FROM alpine:arm64
+FROM 113.209.134.184:11880/fczy/alpine:arm64
 
 MAINTAINER https://github.com/caixiaoqiu87/fabric8-java-alpine-openjdk8-jre
 
