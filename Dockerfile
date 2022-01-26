@@ -10,6 +10,15 @@ RUN mkdir -p /deployments
 ENV JAVA_APP_DIR=/deployments \
     JAVA_MAJOR_VERSION=8
 
+
+# /dev/urandom is used as random source, which is perfectly safe
+# according to http://www.2uo.de/myths-about-urandom/
+RUN apk add --update \
+    curl \
+    openjdk8-jre-base=8.302.08-r2 \
+ && rm /var/cache/apk/* \
+ && echo "securerandom.source=file:/dev/urandom" >> /usr/lib/jvm/default-jvm/jre/lib/security/java.security
+
 #更新Alpine的软件源为国内（清华大学）的站点，因为从默认官源拉取实在太慢了。。。
 RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.15/main/" > /etc/apk/repositories
 
@@ -21,18 +30,6 @@ RUN apk update \
         bash-completion \
         && rm -rf /var/cache/apk/* \
         && /bin/bash
-
-
-#使用默认地址
-RUN echo "http://dl-cdn.alpinelinux.org/" > /etc/apk/repositories
-
-# /dev/urandom is used as random source, which is perfectly safe
-# according to http://www.2uo.de/myths-about-urandom/
-RUN apk add --update \
-    curl \
-    openjdk8-jre-base=8.302.08-r2 \
- && rm /var/cache/apk/* \
- && echo "securerandom.source=file:/dev/urandom" >> /usr/lib/jvm/default-jvm/jre/lib/security/java.security
 
 # Add run script as /deployments/run-java.sh and make it executable
 COPY run-java.sh /deployments/
