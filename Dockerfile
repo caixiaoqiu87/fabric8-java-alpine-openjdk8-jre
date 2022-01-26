@@ -11,7 +11,7 @@ ENV JAVA_APP_DIR=/deployments \
     JAVA_MAJOR_VERSION=8
 
 #更新Alpine的软件源为国内（清华大学）的站点，因为从默认官源拉取实在太慢了。。。
-RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/main/" > /etc/apk/repositories
+RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.15/main/" > /etc/apk/repositories
 
 #添加/bin/bash脚本
 RUN apk update \
@@ -21,6 +21,10 @@ RUN apk update \
         bash-completion \
         && rm -rf /var/cache/apk/* \
         && /bin/bash
+
+
+#使用默认地址
+RUN echo "http://dl-cdn.alpinelinux.org/" > /etc/apk/repositories
 
 # /dev/urandom is used as random source, which is perfectly safe
 # according to http://www.2uo.de/myths-about-urandom/
