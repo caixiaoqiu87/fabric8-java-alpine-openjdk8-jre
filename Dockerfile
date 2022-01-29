@@ -1,4 +1,4 @@
-FROM 113.209.134.184:11880/fczy/alpine:3.15.0_aarch64
+FROM 113.209.134.184:11880/fczy/alpine:3.9_aarch64
 
 MAINTAINER https://github.com/caixiaoqiu87/fabric8-java-alpine-openjdk8-jre
 
