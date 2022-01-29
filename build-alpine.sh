@@ -1,2 +1,2 @@
-docker pull alpine:3.15.0@sha256:c74f1b1166784193ea6c8f9440263b9be6cae07dfe35e32a5df7a31358ac2060
-docker tag 8e1d7573f448 113.209.134.184:11880/fczy/alpine:v3.15_arm64
+docker pull alpine:3.15.0
+docker build -t 113.209.134.184:11880/fczy/alpine:3.15.0_aarch64 .
