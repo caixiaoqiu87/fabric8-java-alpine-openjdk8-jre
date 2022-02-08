@@ -12,7 +12,7 @@ ENV JAVA_APP_DIR=/deployments \
 
 # /dev/urandom is used as random source, which is perfectly safe
 # according to http://www.2uo.de/myths-about-urandom/
-RUN apk add --update curl openjdk8-jre-base \
+RUN apk add --update curl openjdk8-jre-base  && apk add curl busybox-extras util-linux \
  && rm /var/cache/apk/* \
  && echo "securerandom.source=file:/dev/urandom" >> /usr/lib/jvm/default-jvm/jre/lib/security/java.security
 
